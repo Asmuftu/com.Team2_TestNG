@@ -55,9 +55,9 @@ public class useInsider {
         //jobs list
         Actions actions = new Actions(Driver.getDriver());
         ReusableMethods.bekle(1);
-        insiderPage.seeAllTeamsButton.click();
-        insiderPage.QAButton.click();
-        insiderPage.seeAllQAJobsButton.click();
+        insiderPage.seeAllTeamsButton.sendKeys(Keys.ENTER);
+        insiderPage.QAButton.sendKeys(Keys.ENTER);
+        insiderPage.seeAllQAJobsButton.sendKeys(Keys.ENTER);
         Select select = new Select(insiderPage.locationFilterDdm);
         select.selectByVisibleText("Istanbul, Turkey");
         Assert.assertTrue(insiderPage.firstJobElement.isDisplayed());
