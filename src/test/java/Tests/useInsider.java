@@ -64,9 +64,9 @@ public class useInsider {
         ReusableMethods.bekle(2);
         insiderPage.seeAllTeamsButton.sendKeys(Keys.ENTER);
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//h3[@class='text-center mb-4 mb-xl-5'])[12]")));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h3[text()='Quality Assurance']")));
         System.out.println(element.isEnabled());
-        insiderPage.QAButton.click();
+        element.click();
         insiderPage.seeAllQAJobsButton.sendKeys(Keys.ENTER);
         Select select = new Select(insiderPage.locationFilterDdm);
         select.selectByVisibleText("Istanbul, Turkey");

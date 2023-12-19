@@ -34,7 +34,7 @@ public class InsiderPage {
     @FindBy(xpath = "//a[text()='See all teams']")
     public WebElement seeAllTeamsButton;
 
-    @FindBy(xpath = "(//h3[@class='text-center mb-4 mb-xl-5'])[12]")
+    @FindBy(xpath = "//h3[text()='Quality Assurance']")
     public WebElement QAButton;
 
     @FindBy(xpath = "//*[text()='See all QA jobs']")
