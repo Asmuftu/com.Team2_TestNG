@@ -1,6 +1,7 @@
 package Tests;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -63,12 +64,21 @@ public class useInsider {
         ReusableMethods.bekle(1);
         ReusableMethods.bekle(2);
         insiderPage.seeAllTeamsButton.sendKeys(Keys.ENTER);
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h3[text()='Quality Assurance']")));
-        System.out.println(element.isEnabled());
-        element.click();
-        insiderPage.seeAllQAJobsButton.sendKeys(Keys.ENTER);
+        System.out.println(insiderPage.QAButton.isDisplayed());
+
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].click();",insiderPage.QAButton);
+        ReusableMethods.bekle(2);
+
+        js.executeScript("arguments[0].click();",insiderPage.seeAllQAJobsButton);
+
+        ReusableMethods.bekle(3);
+        js.executeScript("arguments[0].scrollIntoView();",insiderPage.BrowseYaziElementi);
+
+
+        ReusableMethods.bekle(2);
         Select select = new Select(insiderPage.locationFilterDdm);
+        js.executeScript("arguments[0].scrollIntoView();",insiderPage.locationFilterDdm);
         select.selectByVisibleText("Istanbul, Turkey");
         Assert.assertTrue(insiderPage.firstJobElement.isDisplayed());
 
