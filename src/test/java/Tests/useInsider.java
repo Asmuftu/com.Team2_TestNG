@@ -1,14 +1,20 @@
 package Tests;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.InsiderPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+
+import java.time.Duration;
 
 public class useInsider {
 
@@ -55,12 +61,19 @@ public class useInsider {
         //jobs list
         Actions actions = new Actions(Driver.getDriver());
         ReusableMethods.bekle(1);
+        ReusableMethods.bekle(2);
         insiderPage.seeAllTeamsButton.sendKeys(Keys.ENTER);
-        insiderPage.QAButton.sendKeys(Keys.ENTER);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//h3[@class='text-center mb-4 mb-xl-5'])[12]")));
+        System.out.println(element.isEnabled());
+        insiderPage.QAButton.click();
         insiderPage.seeAllQAJobsButton.sendKeys(Keys.ENTER);
         Select select = new Select(insiderPage.locationFilterDdm);
         select.selectByVisibleText("Istanbul, Turkey");
         Assert.assertTrue(insiderPage.firstJobElement.isDisplayed());
+
+        //4. Check that all jobs’ Position contains “Quality Assurance”, Department contains
+        //“Quality Assurance”, Location contains “Istanbul, Turkey” and “Apply Now” button
 
 
 
