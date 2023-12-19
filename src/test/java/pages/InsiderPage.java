@@ -31,7 +31,7 @@ public class InsiderPage {
     @FindBy(xpath = "(//h2[@class='elementor-heading-title elementor-size-default'])[2]")
     public WebElement LifeAtInsiderText;
 
-    @FindBy(xpath = "//a[@class='btn btn-outline-secondary rounded text-medium mt-5 mx-auto py-3 loadmore']")
+    @FindBy(xpath = "//a[text()='See all teams']")
     public WebElement seeAllTeamsButton;
 
     @FindBy(xpath = "(//h3[@class='text-center mb-4 mb-xl-5'])[12]")

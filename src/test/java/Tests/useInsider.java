@@ -54,9 +54,7 @@ public class useInsider {
         //Location - Istanbul, Turkey and department - Quality Assurance, check presence of
         //jobs list
         Actions actions = new Actions(Driver.getDriver());
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
         insiderPage.seeAllTeamsButton.click();
         insiderPage.QAButton.click();
         insiderPage.seeAllQAJobsButton.click();
