@@ -1,5 +1,7 @@
 package Tests;
 
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -51,6 +53,10 @@ public class useInsider {
         //3. Click “See All Teams”, select Quality Assurance, click “See all QA jobs”, filter jobs by
         //Location - Istanbul, Turkey and department - Quality Assurance, check presence of
         //jobs list
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.bekle(2);
         insiderPage.seeAllTeamsButton.click();
         insiderPage.QAButton.click();
         insiderPage.seeAllQAJobsButton.click();
