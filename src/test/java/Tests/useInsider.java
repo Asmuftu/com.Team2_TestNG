@@ -54,12 +54,10 @@ public class useInsider {
         //Location - Istanbul, Turkey and department - Quality Assurance, check presence of
         //jobs list
         Actions actions = new Actions(Driver.getDriver());
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-        ReusableMethods.bekle(2);
-        insiderPage.seeAllTeamsButton.click();
-        insiderPage.QAButton.click();
-        insiderPage.seeAllQAJobsButton.click();
+        ReusableMethods.bekle(1);
+        insiderPage.seeAllTeamsButton.sendKeys(Keys.ENTER);
+        insiderPage.QAButton.sendKeys(Keys.ENTER);
+        insiderPage.seeAllQAJobsButton.sendKeys(Keys.ENTER);
         Select select = new Select(insiderPage.locationFilterDdm);
         select.selectByVisibleText("Istanbul, Turkey");
         Assert.assertTrue(insiderPage.firstJobElement.isDisplayed());
