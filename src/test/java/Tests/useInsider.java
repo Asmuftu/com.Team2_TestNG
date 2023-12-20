@@ -110,12 +110,12 @@ public class useInsider {
         SoftAssert softAssert = new SoftAssert();
         Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement(insiderPage.firstJobElement);
-        //js.executeScript("arguments[0].scrollIntoView();",insiderPage.firstJobElement);
+        // js.executeScript("arguments[0].scrollIntoView();",insiderPage.firstJobElement);
         ReusableMethods.bekle(2);
 
         viewRoleBtn = insiderPage.viewRoleBtn.getText();
         System.out.println(viewRoleBtn);
-        softAssert.assertEquals(viewRoleBtn,expectedButtonText);
+        softAssert.assertEquals(viewRoleBtn,expectedButtonText,"Apply Now yazısı görülmedi");
         ReusableMethods.tumSayfaTakeScreenshot(Driver.getDriver());
 
         //5. Click “Apply Now” button and check that this action redirects us to Lever Application
@@ -125,7 +125,7 @@ public class useInsider {
 
              String expectedUrlIcerik = "lever";
              String actualUrl1 = Driver.getDriver().getCurrentUrl();
-             softAssert.assertTrue(actualUrl1.contains(expectedUrlIcerik));
+             softAssert.assertTrue(actualUrl1.contains(expectedUrlIcerik),"Lever Application sayfasına gitmedi");
 
              ReusableMethods.tumSayfaTakeScreenshot(Driver.getDriver());
 
