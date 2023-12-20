@@ -40,9 +40,11 @@ public class InsiderPage {
     @FindBy(xpath = "//*[text()='See all QA jobs']")
     public WebElement seeAllQAJobsButton;
 
-    @FindBy(xpath = "(//span[@class='select2-selection__rendered'])[1]")
+    @FindBy(xpath = "//select[@id='filter-by-location']")
     public WebElement locationFilterDdm;
 
     @FindBy(xpath = "(//div[@class='position-list-item-wrapper bg-light'])[1]")
     public WebElement firstJobElement;
+    @FindBy(xpath = "//div[@class='col-12 d-flex flex-column flex-lg-row justify-content-lg-between align-items-lg-end']")
+    public WebElement BrowseYaziElementi;
 }
