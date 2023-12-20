@@ -84,12 +84,34 @@ public class useInsider {
         //4. Check that all jobs’ Position contains “Quality Assurance”, Department contains
         //“Quality Assurance”, Location contains “Istanbul, Turkey” and “Apply Now” button
 
+        ReusableMethods.bekle(2);
+        int DepartmentSize = insiderPage.positionDepartment.size();
+        String departmentText; 
+        String locationText;
+        String viewRoleBtn;
+        String expectedLocation = "Istanbul, Turkey";
+        String expectedDepartment = "Quality Assurance";
+        String expectedButtonText = "Apply Now";
+        for (int i = 0; i <DepartmentSize ; i++) {
+            departmentText = insiderPage.positionDepartment.get(i).getText();
+            locationText = insiderPage.positionLocation.get(i).getText();
+            viewRoleBtn = insiderPage.viewRoleBtn.getText();
+            //Assert.assertTrue(locationText.contains(expectedLocation)
+            //                         & departmentText.contains(expectedDepartment)
+            //                         & viewRoleBtn.equals(expectedButtonText)
+            //                            );
+            Assert.assertTrue(locationText.contains(expectedLocation));
+            Assert.assertTrue(departmentText.contains(expectedDepartment));
+            Assert.assertEquals(viewRoleBtn,expectedButtonText);
 
-        System.out.println(insiderPage.jobsInIstanbul.size());
+        }
 
-        //span[@class='position-department text-large font-weight-600 text-primary']
-        //position-location text-large
-        //btn btn-navy rounded pt-2 pr-5 pb-2 pl-5
+        //5. Click “Apply Now” button and check that this action redirects us to Lever Application
+        //form page
+        js.executeScript("arguments[0].click();",insiderPage.viewRoleBtn);
+        String expectedUrlIcerik = "lever";
+        String actualUrl1 = Driver.getDriver().getCurrentUrl();
+        Assert.assertTrue(actualUrl1.contains(expectedUrlIcerik));
 
 
         ReusableMethods.bekle(2);

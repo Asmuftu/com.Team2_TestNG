@@ -49,8 +49,12 @@ public class InsiderPage {
     @FindBy(xpath = "//div[@class='col-12 d-flex flex-column flex-lg-row justify-content-lg-between align-items-lg-end']")
     public WebElement BrowseYaziElementi;
 
-    @FindBy(id = "resultCounter")
-    public WebElement resultCounterElement;
+    @FindBy(xpath = "//div[@class='position-location text-large']")
+    public List<WebElement> positionLocation;
+
     @FindBy(xpath = "//span[@class='position-department text-large font-weight-600 text-primary']")
-    public List<WebElement> jobsInIstanbul;
+    public List<WebElement> positionDepartment;
+
+    @FindBy(xpath = "//a[@class='btn btn-navy rounded pt-2 pr-5 pb-2 pl-5']")
+    public WebElement viewRoleBtn;
 }
