@@ -16,6 +16,7 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 
 import java.time.Duration;
+import java.util.List;
 
 public class useInsider {
 
@@ -83,6 +84,12 @@ public class useInsider {
         //4. Check that all jobs’ Position contains “Quality Assurance”, Department contains
         //“Quality Assurance”, Location contains “Istanbul, Turkey” and “Apply Now” button
 
+
+        System.out.println(insiderPage.jobsInIstanbul.size());
+
+        //span[@class='position-department text-large font-weight-600 text-primary']
+        //position-location text-large
+        //btn btn-navy rounded pt-2 pr-5 pb-2 pl-5
 
 
         ReusableMethods.bekle(2);

@@ -6,6 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
 import java.nio.file.Watchable;
+import java.util.List;
 
 public class InsiderPage {
 
@@ -47,4 +48,9 @@ public class InsiderPage {
     public WebElement firstJobElement;
     @FindBy(xpath = "//div[@class='col-12 d-flex flex-column flex-lg-row justify-content-lg-between align-items-lg-end']")
     public WebElement BrowseYaziElementi;
+
+    @FindBy(id = "resultCounter")
+    public WebElement resultCounterElement;
+    @FindBy(xpath = "//span[@class='position-department text-large font-weight-600 text-primary']")
+    public List<WebElement> jobsInIstanbul;
 }
