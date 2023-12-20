@@ -60,13 +60,11 @@ public class useInsider {
         //3. Click “See All Teams”, select Quality Assurance, click “See all QA jobs”, filter jobs by
         //Location - Istanbul, Turkey and department - Quality Assurance, check presence of
         //jobs list
-        Actions actions = new Actions(Driver.getDriver());
-        ReusableMethods.bekle(1);
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].click();",insiderPage.seeAllTeamsButton);
         ReusableMethods.bekle(2);
-        insiderPage.seeAllTeamsButton.sendKeys(Keys.ENTER);
         System.out.println(insiderPage.QAButton.isDisplayed());
 
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("arguments[0].click();",insiderPage.QAButton);
         ReusableMethods.bekle(2);
 
