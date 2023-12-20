@@ -55,6 +55,6 @@ public class InsiderPage {
     @FindBy(xpath = "//span[@class='position-department text-large font-weight-600 text-primary']")
     public List<WebElement> positionDepartment;
 
-    @FindBy(xpath = "//a[@class='btn btn-navy rounded pt-2 pr-5 pb-2 pl-5']")
+    @FindBy(xpath = "(//a[@class='btn btn-navy rounded pt-2 pr-5 pb-2 pl-5'])[1]")
     public WebElement viewRoleBtn;
 }

@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.InsiderPage;
 import utilities.ConfigReader;
 import utilities.Driver;
@@ -95,23 +96,39 @@ public class useInsider {
         for (int i = 0; i <DepartmentSize ; i++) {
             departmentText = insiderPage.positionDepartment.get(i).getText();
             locationText = insiderPage.positionLocation.get(i).getText();
-            viewRoleBtn = insiderPage.viewRoleBtn.getText();
+
             //Assert.assertTrue(locationText.contains(expectedLocation)
             //                         & departmentText.contains(expectedDepartment)
             //                         & viewRoleBtn.equals(expectedButtonText)
             //                            );
             Assert.assertTrue(locationText.contains(expectedLocation));
             Assert.assertTrue(departmentText.contains(expectedDepartment));
-            Assert.assertEquals(viewRoleBtn,expectedButtonText);
+
 
         }
+
+        SoftAssert softAssert = new SoftAssert();
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(insiderPage.firstJobElement);
+        //js.executeScript("arguments[0].scrollIntoView();",insiderPage.firstJobElement);
+        ReusableMethods.bekle(2);
+
+        viewRoleBtn = insiderPage.viewRoleBtn.getText();
+        System.out.println(viewRoleBtn);
+        softAssert.assertEquals(viewRoleBtn,expectedButtonText);
+        ReusableMethods.tumSayfaTakeScreenshot(Driver.getDriver());
 
         //5. Click “Apply Now” button and check that this action redirects us to Lever Application
         //form page
         js.executeScript("arguments[0].click();",insiderPage.viewRoleBtn);
-        String expectedUrlIcerik = "lever";
-        String actualUrl1 = Driver.getDriver().getCurrentUrl();
-        Assert.assertTrue(actualUrl1.contains(expectedUrlIcerik));
+        ReusableMethods.titleIleSayfaDegistir("insider.-Software QA Tester- Insider Testinium Tech Hub (Remote)");
+
+             String expectedUrlIcerik = "lever";
+             String actualUrl1 = Driver.getDriver().getCurrentUrl();
+             softAssert.assertTrue(actualUrl1.contains(expectedUrlIcerik));
+
+             ReusableMethods.tumSayfaTakeScreenshot(Driver.getDriver());
+
 
 
         ReusableMethods.bekle(2);
