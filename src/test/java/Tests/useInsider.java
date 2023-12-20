@@ -129,8 +129,7 @@ public class useInsider {
 
              ReusableMethods.tumSayfaTakeScreenshot(Driver.getDriver());
 
-
-
+        softAssert.assertAll();
         ReusableMethods.bekle(2);
         Driver.quitDriver();
     }
